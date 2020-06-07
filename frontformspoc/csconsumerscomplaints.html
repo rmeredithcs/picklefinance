@@ -4,7 +4,7 @@
            color: red;
        }
 
-       input[type=text], input[type=tel], input[type=email], select {
+       input[type=text], input[type=tel], input[type=email], input[type=date], select {
        -webkit-tap-highlight-color: rgba(0,0,0,0);
        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
        font-size: 14px;
@@ -119,14 +119,10 @@
   enctype="multipart/form-data"
   accept-charset="utf-8"
 >
-<div>
-    <label for="name">Your name<span class=required> *</span></label>
-    <input type="text" name="name" required>
-  </div>
 
-  <div>
-    <label for="dob">Date of birth<span class=required> *</span></label>
-    <input type="text" name="dob" required>
+<div>
+    <label for="name">Name<span class=required> *</span></label>
+    <input type="text" name="name" required>
   </div>
 
   <div>
@@ -140,7 +136,7 @@
 </div>
 
   <div>
-    <label for="email">Email address<span class=required> *</span></label>
+    <label for="email">Email<span class=required> *</span></label>
     <input type="email" name="email" required>
   </div>
 
@@ -158,26 +154,30 @@
     </label>
 </div>
 
-  <div>
-      <label for="customer type">I am a<span class=required> *</span></label>
-      <select name="customer type" required>
-          <option selected style="display:none" value="">Please choose one</option>
-          <option value="current client">Current client</option>
-          <option value="prospective client">Prospective client</option>
-          <option value="customer">Customer wanting assistance</option>
-          <option value="other">Other</option>
-      </select>
-    </div>
-
-  <div>
-      <label for="body">Your message<span class=required> *</span></label>
-    <textarea name="body"></textarea>
+<div>
+    <label for="complaint reason">Reason for complaint<span class=required> *</span></label>
+    <select name="complaint reason" required>
+        <option selected style="display:none" value="">Please choose one</option>
+        <option value="customer service">Customer service</option>
+        <option value="prospective client">Privacy & information handling</option>
+        <option value="other">Other</option>
+    </select>
   </div>
 
   <div>
-      <label for="attachment">Attach a file</label>
-    <input type="file" name="attachment">
-  </div>
+    <label for="event date">When did the event you are complaining about occur?<span class=required> *</span></label>
+    <input type="date" name="event date" required>
+</div>
+
+<div>
+    <label for="body">Description of complaint<span class=required> *</span></label>
+  <textarea name="body"></textarea>
+</div>  
+
+<div>
+    <label for="requested outcome">What outcome would you like in relation to your complaint?<span class=required> *</span></label>
+  <textarea name="requested outcome"></textarea>
+</div>
 
    <div id="html_element"></div>
   <div>
