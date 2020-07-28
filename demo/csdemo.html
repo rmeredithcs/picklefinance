@@ -5,30 +5,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://6dadc58e31982fd9f0be-d4a1ccb0c1936ef2a5b7f304db75b8a4.ssl.cf4.rackcdn.com/CS-Integrated-Iframe-v1.min.js"></script>
 <script>
-// Log the supplied message
-function logMsg(message) {
-if (typeof console == "object") console.log(message);
-else alert(message);
-}
-
-// Do something like display a message to the user
-// or update the interface
-function onApplicationSuccess() {
-// ...
-}
-
-// Handle the response provided by the <iframe>
-function handleIFrameResponse (response, data) {
-switch (response) {
-    case "99": // Example status code (Bank status success)
-        logMsg('Bank details collected successfully');
-        break;
-    case "100": // Example status code
-        onApplicationSuccess();
-        break;
-}
-}
-
 $(document).ready(function() {
 $.CreditSense.Iframe({
     client: "PICK01",
