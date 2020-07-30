@@ -141,6 +141,7 @@ code,
           }
           body {
             margin: 0;
+            background-color: #ffffff;
           }
           hr {
             width: 100%;
@@ -295,8 +296,14 @@ code,
           p, label {
             color: #000000;
           }
-          body {
-              background-color: #ffffff;
+          #forgot-password {
+            text-decoration: none;
+            color: #C0C6CC;
+            text-align: center;
+            transition: 0.5s;
+          }
+          #forgot-password:hover {
+            color: #000000;
           }
         </style>
         <div id="err"></div>
@@ -327,6 +334,7 @@ code,
                 <button id="submitbutton" type="submit">Login</button>
               </form>
               <!-- until this point-->
+              <p id="forgot-password"><a id="forgot-password" href="mailto:support@creditsense.com.au">Forgot password • Request access</a></p>
             </div>
             <div class="right spacer"></div>
           </div>
