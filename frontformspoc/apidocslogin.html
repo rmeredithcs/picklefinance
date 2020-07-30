@@ -1,0 +1,340 @@
+<html lang="en"><head>
+        <title>Credit Sense</title>
+      <meta name="description" content="API docs for Credit Sense">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      #err .alert {
+        background-color: #e60a0a;
+        color: white;
+        padding: 0.75em;
+        text-align: center;
+      }
+    </style>
+<style>
+        /* Apply background colors as #327AB8 */
+#homeBanner {
+  background-color: #327AB8;
+}
+/* Apply background colors as #327AB8 */
+.contactPopup .cpSubmit,
+#doorbell-submit-button,
+.cc-revoke, .cc-allow {
+  background-color: #327AB8;
+}
+
+/* Apply color as #327AB8 */
+.langLink,
+.cCardIcon, .cCardTitle, .aCardTitle, .spCardTitle,
+.snmenu a.sidebar-category:hover, .snmenu a.sidebar-article:hover,
+#tableOfContents a:hover,
+.bcList a,
+#articleBody a,
+#articleBody ul > li::before,
+.inline-code,
+code,
+.cpCheck:after,
+.cc-link {
+  color: #327AB8;
+}
+
+/* Apply color as #eaf1f7 */
+.hnBrand,
+.hnItems a,
+.hnItem a,
+.contactPopup .cpSubmit,
+.scTitle, .taTitle, .faTitle,
+.faCardTitle, .taCardTitle,
+.taHit, .faHit,
+#doorbell-submit-button,
+.cc-revoke, .cc-allow {
+  color: #eaf1f7;
+}
+
+/* Apply border-color as #327AB8 */
+.contactPopup .cpName input:hover,
+.contactPopup .cpEmail input:hover,
+.contactPopup .cpTextarea textarea:hover,
+.contactPopup .cpName input:focus,
+.contactPopup .cpEmail input:focus,
+.contactPopup .cpTextarea textarea:focus,
+#prevNext .pnPrev:hover,
+#prevNext .pnNext:hover {
+  border-color: #327AB8;
+}
+
+/* Apply border-top-color as #327AB8 */
+.cc-window {
+  border-top-color: #327AB8 !important;
+}
+
+/* Apply border-color as #327AB8 */
+#articleBody blockquote {
+  border-color: #327AB8;
+}
+
+/* Apply color as #286193 */
+#articleBody ol > li:before,
+.snmenu a.sidebar-category p.expanded, .snmenu a.sidebar-article.current p,
+.ticket-deflection-result a,
+.cc-dismiss, .cc-deny {
+  color: #286193;
+}
+
+@media only screen and (max-width: 1000px) {
+  .hnItem a {
+    color: #286193;
+  }
+}
+
+/* Apply background-color as #eaf1f7 */
+#articleBody ol > li:before,
+.snmenu a.sidebar-category p.expanded, .snmenu a.sidebar-article.current p,
+.cc-dismiss, .cc-deny {
+  background-color: rgba(234, 241, 247);
+}
+
+/* Apply border-color as #eaf1f7 */
+#articleBody ol > li:after {
+  border: 1px solid rgba(234, 241, 247);
+}
+
+/* Apply fill as #327AB8 */
+.fbPositiveIcon:hover .fbHighlightFill,
+.fbNeutralIcon:hover .fbHighlightFill,
+.fbNegativeIcon:hover .fbHighlightFill {
+  fill: #327AB8;
+}
+
+/* Apply stroke as #327AB8 */
+.fbPositiveIcon:hover .fbHighlightStroke,
+.fbNeutralIcon:hover .fbHighlightStroke,
+.fbNegativeIcon:hover .fbHighlightStroke {
+  stroke: #327AB8;
+}
+
+/* Apply fill as #eaf1f7 */
+.hnLangFlag {
+  fill: #eaf1f7;
+}
+
+/* Apply fill as #327AB8 */
+.aCardFeaturedIcon {
+  fill: #327AB8;
+}
+      </style>
+    <meta property="hd-render" content="hbs">
+  </head>
+  <body>
+    <div id="internalMain" data-hd-template="_internal">
+      <div id="internalContent">
+         <style>
+          * {
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-smoothing: always;
+            text-rendering: optimizeLegibility;
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: 100;
+            font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,sans-serif;
+          }
+          body {
+            margin: 0;
+          }
+          hr {
+            width: 100%;
+            height: 1px;
+            border-width: 0;
+            color: gray;
+            background-color: #eaeaea;
+            margin: 2em 0;
+          }
+          button, input, select, textarea {
+            font-family: inherit;
+            font-size: 100%;
+            width: 100%;
+            margin: 10px 0;
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+          }
+          fieldset {
+            border: 0;
+            padding: 0;
+          }
+          input {
+            display: block;
+            max-height: 5rem;
+            padding: 0.95rem;
+            border-radius: 3px;
+            border: 1px solid #c3c3c3;
+          }
+          @-webkit-keyframes fadeUpIn {
+            0% {
+              opacity: 0;
+              -webkit-transform: translateY(20px);
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              -webkit-transform: translateY(0);
+              transform: translateY(0);
+            }
+          }
+          @keyframes fadeUpIn {
+            0% {
+              opacity: 0;
+              -webkit-transform: translateY(20px);
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              -webkit-transform: translateY(0);
+              transform: translateY(0);
+            }
+          }
+          #team-login {
+            padding-top: 4em;
+            margin-bottom: 5rem;
+            width: 100%;
+          }
+          #team-login .left.spacer {
+            -webkit-box-ordinal-group: 2;
+                -ms-flex-order: 1;
+                    order: 1;
+            width: 35%;
+          }
+          #team-login .right.spacer {
+            -webkit-box-ordinal-group: 4;
+                -ms-flex-order: 3;
+                    order: 3;
+            width: 35%;
+          }
+          #team-login .box {
+            -webkit-animation: fadeUpIn 0.75s cubic-bezier(.2,1,.2,1);
+            animation: fadeUpIn 0.75s cubic-bezier(.2,1,.2,1);
+          }
+          #team-login button {
+            padding: 0.75rem;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+          }
+          #team-login button#submitbutton {
+            background-color: #4848e2;
+            color: white;
+          }
+          #team-login .top img.logo {
+            margin: 0 auto 2em auto;
+            display: block;
+            max-height: 3rem;
+            -webkit-animation: fadeUpIn 2s cubic-bezier(.2,1,.2,1);
+            animation: fadeUpIn 2s cubic-bezier(.2,1,.2,1);
+          }
+          #team-login .middle {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+          }
+          #team-login .box {
+            -webkit-box-ordinal-group: 3;
+                -ms-flex-order: 2;
+                    order: 2;
+            margin-bottom: -2em;
+            background-color: white;
+            border-radius: 6px;
+            padding: 2em;
+            -webkit-box-shadow:
+              0 1.1px 4.9px rgba(0, 0, 0, 0.045),
+              0 3.8px 16.3px rgba(0, 0, 0, 0.063),
+              0 17px 73px rgba(0, 0, 0, 0.07)
+            ;
+                    box-shadow:
+              0 1.1px 4.9px rgba(0, 0, 0, 0.045),
+              0 3.8px 16.3px rgba(0, 0, 0, 0.063),
+              0 17px 73px rgba(0, 0, 0, 0.07)
+            ;
+          }
+          @media only screen and (max-width: 768px) {
+            #team-login .left.spacer { width: 5%; }
+            #team-login .right.spacer { width: 5%; }
+            #team-login .box { width: 90%; }
+          }
+          @media only screen and (min-width: 768px) {
+            #team-login .left.spacer { width: 25%; }
+            #team-login .right.spacer { width: 25%; }
+            #team-login .box { width: 50%; }
+          }
+          @media only screen and (min-width: 1100px) {
+            #team-login .left.spacer { width: 35%; }
+            #team-login .right.spacer { width: 35%; }
+            #team-login .box { width: 40%; }
+          }
+          @media only screen and (min-width: 2000px) {
+            #team-login .left.spacer { width: 40%; }
+            #team-login .right.spacer { width: 40%; }
+            #team-login .box { width: 20%; }
+          }
+          @media only screen and (min-width: 3000px) {
+            #team-login .left.spacer { width: 45%; }
+            #team-login .right.spacer { width: 45; }
+            #team-login .box { width: 10%; }
+          }
+          #team-login h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 0 auto;
+            font-weight: 500;
+            color: #000000;
+          }
+          p, label {
+            color: #000000;
+          }
+          body {
+              background-color: #ffffff;
+          }
+        </style>
+        <div id="err"></div>
+        <div id="team-login" style="background-color:#327AB8 !important">
+          <div class="top">
+            <a href="https://creditsense.com.au">
+                <img class="logo" src="credit-sense-logo-white-square-48px.png" alt="Credit Sense logo">
+            </a>
+          </div>
+          <div class="middle">
+            <div class="left spacer"></div>
+            <div class="box">
+              <div class="title">
+                <h1>
+                    Credit Sense
+                  Login
+                </h1>
+                <p align="center">These API docs are password protected</p>
+              </div>
+              <hr>
+              <!-- the form here needs to be replaced or updated -->
+              <form action="/team-login" method="POST">
+                <fieldset>
+                  <label for="password">Password&nbsp;&nbsp;&nbsp;</label>
+                  <input id="password" type="password" name="password" placeholder="••••••••" required="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAz5JREFUWAndWL1LY0EQn7xEBTWinmDuLk1UEEmhwcbuROT+hvNiZyVYpbASbCzk/o/ACVapUkkCAe1iQAsbPzmjoFFMUBST3Pz2ssv7yHtqfA/hFsLO1878dvbN7KqPeKytrX19fn7+xeR0vV7/Aplbw+fznbOvTCAQWF5ZWflj9utrBC9w4E9mpZs8A7lmEONmEBp27nVwbAQxGlk27Etjbtog8ZaxxNLcPnMn/M1iIQMfOv5vAGNjY5RIJAiz3fA0A9FolHp6egiz3fAUANe+iCvnZiA8BdAsoFlmANDR0UHDw8PU19dntqNWdRZHJkFA8r29vbSwsEDBYJBqtRqlUina3d0V6lZ10rfTrDIwNTUlgsNY0zSamZlR61rVKQcOhALgYOOpSgHY2dmhcrksguEItra2VOBWdcqBA+FbXV2tSz0+tHA4TKVSiW5ubqRYzE46g+ELDJdkkU2yjffBmQHAC2tdVTOQEoOYUEfgqvdXOOObsR/vgw8D0MD4TfWBV4B2NPH7/RSLxUTfR99AP7m/v6eLiwva3t6mo6Mjy3rOwmfXAMTjcRoaGjIEwUWE38jICG1sbNDBwYFBD8a1I8hkMnj3id/t7S1VKhUVDI1tcnJS8XrCtQycnp6K9n18fKxKeH5+XuweAXFEzUaAy+G82VutmfFLsnw+r0xk+qVgb29PkoYZGcjw76dB+g5maWlJ3Jzd3d2EdwCXGuVyOdKD07vX0JHY8FovfA89MDAgKgDBMfb39+nw8NDWpZ97fnl2djbJxxDiRfjrKGhr/QpFJBKhx8dHamtrI94chUIhUZ74QE9OTiwe/sG0iO0F+rvD3oqovb2d5ubmCIAwcMGtr6/T09OTYZlrZTg4OGhwjEBXV1dKhlLs6upSvCRcK8PFxUW6vLykYrEoOiCedaOjozIOPTw8qPJUQiZcAwCnyII5EzJYOp2WpGF+8xHwh4r73DJQ59ilfsgPL5lMUqFQ0KsEDV+tZCDLq3+YvW1uboq6R/13dnaKj+3u7o6q1arZVM9n3wwAfYOby3feXb/eE2jsGM86+bQz6/U87x4PkuU3HwH/h+OMF06wg992x6EPZKaxBmvhA77+AtwhRvYQqQFKAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                </fieldset>
+                <input id="forward" type="hidden" style="display: none;" name="forward" value="/">
+                <button id="submitbutton" type="submit">Login</button>
+              </form>
+              <!-- until this point-->
+            </div>
+            <div class="right spacer"></div>
+          </div>
+        </div>
+  <div style="position: relative !important; bottom: 0 !important; text-align: center !important; margin: 2em !important; padding: initial !important; padding-bottom: 2em !important; display: block !important;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="32" height="32" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M14 12l-2 2l-2-2l2-2l2 2zm-2-6l2.12 2.12l2.5-2.5L12 1L7.38 5.62l2.5 2.5L12 6zm-6 6l2.12-2.12l-2.5-2.5L1 12l4.62 4.62l2.5-2.5L6 12zm12 0l-2.12 2.12l2.5 2.5L23 12l-4.62-4.62l-2.5 2.5L18 12zm-6 6l-2.12-2.12l-2.5 2.5L12 23l4.62-4.62l-2.5-2.5L12 18z" fill="#D6DCE3"/></svg>
+  </div>
+      </div>
+    </div>
+</body>
+</html>
