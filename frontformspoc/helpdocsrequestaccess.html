@@ -4,14 +4,13 @@
   <title>Credit Sense</title>
   <meta name="description" content="API docs for Credit Sense">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style>
     #err.alert {
       background-color: #e60a0a;
-      color: white;
-      padding: 0.75em;
+      color: #fff;
+      padding: .75em;
       text-align: center;
-      display: none;
+      display: none
     }
 
     * {
@@ -23,12 +22,12 @@
       text-rendering: optimizeLegibility;
       -webkit-text-size-adjust: none;
       -ms-text-size-adjust: 100;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif
     }
 
     body {
       margin: 0;
-      background-color: #ffffff;
+      background-color: #fff
     }
 
     hr {
@@ -37,7 +36,7 @@
       border-width: 0;
       color: gray;
       background-color: #eaeaea;
-      margin: 2em 0;
+      margin: 2em 0
     }
 
     button,
@@ -49,28 +48,28 @@
       width: 100%;
       margin: 10px 0;
       -webkit-box-sizing: border-box;
-      box-sizing: border-box;
+      box-sizing: border-box
     }
 
     input {
       display: block;
       max-height: 5rem;
-      padding: 0.95rem;
+      padding: .95rem;
       border-radius: 3px;
-      border: 1px solid #c3c3c3;
+      border: 1px solid #c3c3c3
     }
 
     @-webkit-keyframes fadeUpIn {
       0% {
         opacity: 0;
         -webkit-transform: translateY(20px);
-        transform: translateY(20px);
+        transform: translateY(20px)
       }
 
       100% {
         opacity: 1;
         -webkit-transform: translateY(0);
-        transform: translateY(0);
+        transform: translateY(0)
       }
     }
 
@@ -78,60 +77,60 @@
       0% {
         opacity: 0;
         -webkit-transform: translateY(20px);
-        transform: translateY(20px);
+        transform: translateY(20px)
       }
 
       100% {
         opacity: 1;
         -webkit-transform: translateY(0);
-        transform: translateY(0);
+        transform: translateY(0)
       }
     }
 
     #team-login {
       padding-top: 4em;
       margin-bottom: 5rem;
-      width: 100%;
+      width: 100%
     }
 
     #team-login .left.spacer {
       -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
       order: 1;
-      width: 35%;
+      width: 35%
     }
 
     #team-login .right.spacer {
       -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
       order: 3;
-      width: 35%;
+      width: 35%
     }
 
     #team-login .box {
-      -webkit-animation: fadeUpIn 0.75s cubic-bezier(.2, 1, .2, 1);
-      animation: fadeUpIn 0.75s cubic-bezier(.2, 1, .2, 1);
+      -webkit-animation: fadeUpIn .75s cubic-bezier(.2, 1, .2, 1);
+      animation: fadeUpIn .75s cubic-bezier(.2, 1, .2, 1)
     }
 
     input#submitbutton {
       background-color: #4848e2;
-      color: white;
-      padding: 0.75rem;
+      color: #fff;
+      padding: .75rem;
       border-radius: 3px;
       border: none;
       cursor: pointer;
       font-weight: 500;
-      margin-top: 20px;
+      margin-top: 20px
     }
 
     #team-login button {
-      padding: 0.75rem;
+      padding: .75rem;
       border-radius: 3px;
       border: none;
       cursor: pointer;
       font-weight: 500;
       background-color: #4848e2;
-      color: white;
+      color: #fff
     }
 
     #team-login .top img.logo {
@@ -139,7 +138,7 @@
       display: block;
       max-height: 3rem;
       -webkit-animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1);
-      animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1);
+      animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1)
     }
 
     #team-login .middle {
@@ -149,7 +148,7 @@
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
       -ms-flex-direction: row;
-      flex-direction: row;
+      flex-direction: row
     }
 
     #team-login .box {
@@ -157,86 +156,80 @@
       -ms-flex-order: 2;
       order: 2;
       margin-bottom: -2em;
-      background-color: white;
+      background-color: #fff;
       border-radius: 6px;
       padding: 2em;
-      -webkit-box-shadow:
-        0 1.1px 4.9px rgba(0, 0, 0, 0.045),
-        0 3.8px 16.3px rgba(0, 0, 0, 0.063),
-        0 17px 73px rgba(0, 0, 0, 0.07);
-      box-shadow:
-        0 1.1px 4.9px rgba(0, 0, 0, 0.045),
-        0 3.8px 16.3px rgba(0, 0, 0, 0.063),
-        0 17px 73px rgba(0, 0, 0, 0.07);
+      -webkit-box-shadow: 0 1.1px 4.9px rgba(0, 0, 0, .045), 0 3.8px 16.3px rgba(0, 0, 0, .063), 0 17px 73px rgba(0, 0, 0, .07);
+      box-shadow: 0 1.1px 4.9px rgba(0, 0, 0, .045), 0 3.8px 16.3px rgba(0, 0, 0, .063), 0 17px 73px rgba(0, 0, 0, .07)
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width:768px) {
       #team-login .left.spacer {
-        width: 5%;
+        width: 5%
       }
 
       #team-login .right.spacer {
-        width: 5%;
+        width: 5%
       }
 
       #team-login .box {
-        width: 90%;
+        width: 90%
       }
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width:768px) {
       #team-login .left.spacer {
-        width: 25%;
+        width: 25%
       }
 
       #team-login .right.spacer {
-        width: 25%;
+        width: 25%
       }
 
       #team-login .box {
-        width: 50%;
+        width: 50%
       }
     }
 
-    @media only screen and (min-width: 1100px) {
+    @media only screen and (min-width:1100px) {
       #team-login .left.spacer {
-        width: 35%;
+        width: 35%
       }
 
       #team-login .right.spacer {
-        width: 35%;
+        width: 35%
       }
 
       #team-login .box {
-        width: 40%;
+        width: 40%
       }
     }
 
-    @media only screen and (min-width: 2000px) {
+    @media only screen and (min-width:2000px) {
       #team-login .left.spacer {
-        width: 40%;
+        width: 40%
       }
 
       #team-login .right.spacer {
-        width: 40%;
+        width: 40%
       }
 
       #team-login .box {
-        width: 20%;
+        width: 20%
       }
     }
 
-    @media only screen and (min-width: 3000px) {
+    @media only screen and (min-width:3000px) {
       #team-login .left.spacer {
-        width: 45%;
+        width: 45%
       }
 
       #team-login .right.spacer {
-        width: 45;
+        width: 45
       }
 
       #team-login .box {
-        width: 10%;
+        width: 10%
       }
     }
 
@@ -245,67 +238,31 @@
       text-align: center;
       margin: 0 auto;
       font-weight: 500;
-      color: #000000;
+      color: #000
     }
 
-    p,
-    label {
-      color: #000000;
+    label,
+    p {
+      color: #000
     }
 
     label.required:after {
       content: " *";
-      color: #ED7F51;
+      color: #ed7f51
     }
 
     #contact-support {
       text-decoration: none;
-      color: #C0C6CC;
+      color: #c0c6cc;
       text-align: center;
-      transition: 0.5s;
-      margin-top: 20px;
+      transition: .5s;
+      margin-top: 20px
     }
 
     #contact-support:hover {
-      color: #000000;
+      color: #000
     }
   </style>
-<!--
-  <script type="text/javascript">
-    // Log out the URL params
-    const queryString = window.location.search;
-    console.log(queryString);
-
-
-  </script>
-
-  <script type="text/javascript">
-    // Log out true if URL params has code=ok
-    console.log(urlParams.has('code=ok'));
-  </script>
-
-  <script type="text/javascript">
-    // Get URL
-    var url = window.location.href;
-    // Get DIV
-    var msg = document.getElementById('err');
-    // Check if URL contains the keyword
-    if (url.search('ok') > 0) {
-      // Display the message
-      msg.style.display = "block";
-    }
-  </script>
-  -->
-
-  <script>
-    $(document).ready(function() {
-
-    var url = location.href;
-    // document.body.innerHTML += 'Web address: ' + url;
-
-    if (url.search('boomerang') >= 0) $('.alert').show();
-    });
-  </script>
 
   <meta property="hd-render" content="hbs">
 </head>
