@@ -277,13 +277,12 @@
 
 
   </script>
--->
+
   <script type="text/javascript">
     // Log out true if URL params has code=ok
     console.log(urlParams.has('code=ok'));
   </script>
 
-<!--
   <script type="text/javascript">
     // Get URL
     var url = window.location.href;
@@ -296,6 +295,16 @@
     }
   </script>
   -->
+
+  <script>
+    $(document).ready(function() {
+
+    var url = location.href;
+    // document.body.innerHTML += 'Web address: ' + url;
+
+    if (url.search('boomerang') >= 0) $('.alert').show();
+    });
+  </script>
 
   <meta property="hd-render" content="hbs">
 </head>
