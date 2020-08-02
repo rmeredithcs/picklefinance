@@ -146,6 +146,125 @@
     <div id="internalMain" data-hd-template="_internal">
         <div id="internalContent">
             <style>
+                #err .alert {
+                    background-color: #e60a0a;
+                    color: #fff;
+                    padding: .75em;
+                    text-align: center
+                }
+
+                #homeBanner {
+                    background-color: #327ab8
+                }
+
+                #doorbell-submit-button,
+                .cc-allow,
+                .cc-revoke,
+                .contactPopup .cpSubmit {
+                    background-color: #327ab8
+                }
+
+                #articleBody a,
+                #articleBody ul>li::before,
+                #tableOfContents a:hover,
+                .aCardTitle,
+                .bcList a,
+                .cCardIcon,
+                .cCardTitle,
+                .cc-link,
+                .cpCheck:after,
+                .inline-code,
+                .langLink,
+                .snmenu a.sidebar-article:hover,
+                .snmenu a.sidebar-category:hover,
+                .spCardTitle,
+                code {
+                    color: #327ab8
+                }
+
+                #doorbell-submit-button,
+                .cc-allow,
+                .cc-revoke,
+                .contactPopup .cpSubmit,
+                .faCardTitle,
+                .faHit,
+                .faTitle,
+                .hnBrand,
+                .hnItem a,
+                .hnItems a,
+                .scTitle,
+                .taCardTitle,
+                .taHit,
+                .taTitle {
+                    color: #eaf1f7
+                }
+
+                #prevNext .pnNext:hover,
+                #prevNext .pnPrev:hover,
+                .contactPopup .cpEmail input:focus,
+                .contactPopup .cpEmail input:hover,
+                .contactPopup .cpName input:focus,
+                .contactPopup .cpName input:hover,
+                .contactPopup .cpTextarea textarea:focus,
+                .contactPopup .cpTextarea textarea:hover {
+                    border-color: #327ab8
+                }
+
+                .cc-window {
+                    border-top-color: #327ab8 !important
+                }
+
+                #articleBody blockquote {
+                    border-color: #327ab8
+                }
+
+                #articleBody ol>li:before,
+                .cc-deny,
+                .cc-dismiss,
+                .snmenu a.sidebar-article.current p,
+                .snmenu a.sidebar-category p.expanded,
+                .ticket-deflection-result a {
+                    color: #286193
+                }
+
+                @media only screen and (max-width:1000px) {
+                    .hnItem a {
+                        color: #286193
+                    }
+                }
+
+                #articleBody ol>li:before,
+                .cc-deny,
+                .cc-dismiss,
+                .snmenu a.sidebar-article.current p,
+                .snmenu a.sidebar-category p.expanded {
+                    background-color: rgba(234, 241, 247)
+                }
+
+                #articleBody ol>li:after {
+                    border: 1px solid rgba(234, 241, 247)
+                }
+
+                .fbNegativeIcon:hover .fbHighlightFill,
+                .fbNeutralIcon:hover .fbHighlightFill,
+                .fbPositiveIcon:hover .fbHighlightFill {
+                    fill: #327ab8
+                }
+
+                .fbNegativeIcon:hover .fbHighlightStroke,
+                .fbNeutralIcon:hover .fbHighlightStroke,
+                .fbPositiveIcon:hover .fbHighlightStroke {
+                    stroke: #327ab8
+                }
+
+                .hnLangFlag {
+                    fill: #eaf1f7
+                }
+
+                .aCardFeaturedIcon {
+                    fill: #327ab8
+                }
+
                 * {
                     -webkit-box-sizing: border-box;
                     box-sizing: border-box;
@@ -154,12 +273,12 @@
                     text-rendering: optimizeLegibility;
                     -webkit-text-size-adjust: none;
                     -ms-text-size-adjust: 100;
-                    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+                    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif
                 }
 
                 body {
                     margin: 0;
-                    background-color: #ffffff;
+                    background-color: #fff
                 }
 
                 hr {
@@ -168,7 +287,7 @@
                     border-width: 0;
                     color: gray;
                     background-color: #eaeaea;
-                    margin: 2em 0;
+                    margin: 2em 0
                 }
 
                 button,
@@ -180,33 +299,33 @@
                     width: 100%;
                     margin: 10px 0;
                     -webkit-box-sizing: border-box;
-                    box-sizing: border-box;
+                    box-sizing: border-box
                 }
 
                 fieldset {
                     border: 0;
-                    padding: 0;
+                    padding: 0
                 }
 
                 input {
                     display: block;
                     max-height: 5rem;
-                    padding: 0.95rem;
+                    padding: .95rem;
                     border-radius: 3px;
-                    border: 1px solid #c3c3c3;
+                    border: 1px solid #c3c3c3
                 }
 
                 @-webkit-keyframes fadeUpIn {
                     0% {
                         opacity: 0;
                         -webkit-transform: translateY(20px);
-                        transform: translateY(20px);
+                        transform: translateY(20px)
                     }
 
                     100% {
                         opacity: 1;
                         -webkit-transform: translateY(0);
-                        transform: translateY(0);
+                        transform: translateY(0)
                     }
                 }
 
@@ -214,49 +333,49 @@
                     0% {
                         opacity: 0;
                         -webkit-transform: translateY(20px);
-                        transform: translateY(20px);
+                        transform: translateY(20px)
                     }
 
                     100% {
                         opacity: 1;
                         -webkit-transform: translateY(0);
-                        transform: translateY(0);
+                        transform: translateY(0)
                     }
                 }
 
                 #team-login {
                     padding-top: 4em;
                     margin-bottom: 5rem;
-                    width: 100%;
+                    width: 100%
                 }
 
                 #team-login .left.spacer {
                     -webkit-box-ordinal-group: 2;
                     -ms-flex-order: 1;
                     order: 1;
-                    width: 35%;
+                    width: 35%
                 }
 
                 #team-login .right.spacer {
                     -webkit-box-ordinal-group: 4;
                     -ms-flex-order: 3;
                     order: 3;
-                    width: 35%;
+                    width: 35%
                 }
 
                 #team-login .box {
-                    -webkit-animation: fadeUpIn 0.75s cubic-bezier(.2, 1, .2, 1);
-                    animation: fadeUpIn 0.75s cubic-bezier(.2, 1, .2, 1);
+                    -webkit-animation: fadeUpIn .75s cubic-bezier(.2, 1, .2, 1);
+                    animation: fadeUpIn .75s cubic-bezier(.2, 1, .2, 1)
                 }
 
                 #team-login button {
-                    padding: 0.75rem;
+                    padding: .75rem;
                     border-radius: 3px;
                     border: none;
                     cursor: pointer;
                     font-weight: 500;
                     background-color: #4848e2;
-                    color: white;
+                    color: #fff
                 }
 
                 #team-login .top img.logo {
@@ -264,7 +383,7 @@
                     display: block;
                     max-height: 3rem;
                     -webkit-animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1);
-                    animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1);
+                    animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1)
                 }
 
                 #team-login .middle {
@@ -274,7 +393,7 @@
                     -webkit-box-orient: horizontal;
                     -webkit-box-direction: normal;
                     -ms-flex-direction: row;
-                    flex-direction: row;
+                    flex-direction: row
                 }
 
                 #team-login .box {
@@ -282,86 +401,80 @@
                     -ms-flex-order: 2;
                     order: 2;
                     margin-bottom: -2em;
-                    background-color: white;
+                    background-color: #fff;
                     border-radius: 6px;
                     padding: 2em;
-                    -webkit-box-shadow:
-                        0 1.1px 4.9px rgba(0, 0, 0, 0.045),
-                        0 3.8px 16.3px rgba(0, 0, 0, 0.063),
-                        0 17px 73px rgba(0, 0, 0, 0.07);
-                    box-shadow:
-                        0 1.1px 4.9px rgba(0, 0, 0, 0.045),
-                        0 3.8px 16.3px rgba(0, 0, 0, 0.063),
-                        0 17px 73px rgba(0, 0, 0, 0.07);
+                    -webkit-box-shadow: 0 1.1px 4.9px rgba(0, 0, 0, .045), 0 3.8px 16.3px rgba(0, 0, 0, .063), 0 17px 73px rgba(0, 0, 0, .07);
+                    box-shadow: 0 1.1px 4.9px rgba(0, 0, 0, .045), 0 3.8px 16.3px rgba(0, 0, 0, .063), 0 17px 73px rgba(0, 0, 0, .07)
                 }
 
-                @media only screen and (max-width: 768px) {
+                @media only screen and (max-width:768px) {
                     #team-login .left.spacer {
-                        width: 5%;
+                        width: 5%
                     }
 
                     #team-login .right.spacer {
-                        width: 5%;
+                        width: 5%
                     }
 
                     #team-login .box {
-                        width: 90%;
+                        width: 90%
                     }
                 }
 
-                @media only screen and (min-width: 768px) {
+                @media only screen and (min-width:768px) {
                     #team-login .left.spacer {
-                        width: 25%;
+                        width: 25%
                     }
 
                     #team-login .right.spacer {
-                        width: 25%;
+                        width: 25%
                     }
 
                     #team-login .box {
-                        width: 50%;
+                        width: 50%
                     }
                 }
 
-                @media only screen and (min-width: 1100px) {
+                @media only screen and (min-width:1100px) {
                     #team-login .left.spacer {
-                        width: 35%;
+                        width: 35%
                     }
 
                     #team-login .right.spacer {
-                        width: 35%;
+                        width: 35%
                     }
 
                     #team-login .box {
-                        width: 40%;
+                        width: 40%
                     }
                 }
 
-                @media only screen and (min-width: 2000px) {
+                @media only screen and (min-width:2000px) {
                     #team-login .left.spacer {
-                        width: 40%;
+                        width: 40%
                     }
 
                     #team-login .right.spacer {
-                        width: 40%;
+                        width: 40%
                     }
 
                     #team-login .box {
-                        width: 20%;
+                        width: 20%
                     }
                 }
 
-                @media only screen and (min-width: 3000px) {
+                @media only screen and (min-width:3000px) {
                     #team-login .left.spacer {
-                        width: 45%;
+                        width: 45%
                     }
 
                     #team-login .right.spacer {
-                        width: 45;
+                        width: 45
                     }
 
                     #team-login .box {
-                        width: 10%;
+                        width: 10%
                     }
                 }
 
@@ -370,23 +483,23 @@
                     text-align: center;
                     margin: 0 auto;
                     font-weight: 500;
-                    color: #000000;
+                    color: #000
                 }
 
-                p,
-                label {
-                    color: #000000;
+                label,
+                p {
+                    color: #000
                 }
 
                 #forgot-password {
                     text-decoration: none;
-                    color: #C0C6CC;
+                    color: #c0c6cc;
                     text-align: center;
-                    transition: 0.5s;
+                    transition: .5s
                 }
 
                 #forgot-password:hover {
-                    color: #000000;
+                    color: #000
                 }
             </style>
             <div id="err"></div>
@@ -407,7 +520,7 @@
                         </div>
                         <hr>
                         <!-- the form here needs to be replaced or updated -->
-                        <form action="/" method="POST">
+                        <form action="https://rmeredithcs.github.io/credit-sense-v2-api/" method="POST">
                             <fieldset>
                                 <label for="password">Password</label>
                                 <input id="password" type="password" name="password" placeholder="••••••••" required=""
@@ -417,7 +530,8 @@
                             <button id="submitbutton" type="submit">Login</button>
                         </form>
                         <!-- until this point-->
-                        <p id="forgot-password"><a id="forgot-password" href="/picklefinance/frontformspoc/helpdocsrequestaccess.html">Forgot
+                        <p id="forgot-password"><a id="forgot-password"
+                                href="/picklefinance/frontformspoc/helpdocsrequestaccess.html">Forgot
                                 password • Request access</a></p>
                     </div>
                     <div class="right spacer"></div>
