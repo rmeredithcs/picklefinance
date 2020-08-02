@@ -5,140 +5,283 @@
   <meta name="description" content="API docs for Credit Sense">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    #err .alert {
+    #err.alert {
       background-color: #e60a0a;
       color: white;
       padding: 0.75em;
       text-align: center;
-    }
-  </style>
-  <style>
-    /* Apply background colors as #327AB8 */
-    #homeBanner {
-      background-color: #327AB8;
+      display: none;
     }
 
-    /* Apply background colors as #327AB8 */
-    .contactPopup .cpSubmit,
-    #doorbell-submit-button,
-    .cc-revoke,
-    .cc-allow {
-      background-color: #327AB8;
+    * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-smoothing: always;
+      text-rendering: optimizeLegibility;
+      -webkit-text-size-adjust: none;
+      -ms-text-size-adjust: 100;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
     }
 
-    /* Apply color as #327AB8 */
-    .langLink,
-    .cCardIcon,
-    .cCardTitle,
-    .aCardTitle,
-    .spCardTitle,
-    .snmenu a.sidebar-category:hover,
-    .snmenu a.sidebar-article:hover,
-    #tableOfContents a:hover,
-    .bcList a,
-    #articleBody a,
-    #articleBody ul>li::before,
-    .inline-code,
-    code,
-    .cpCheck:after,
-    .cc-link {
-      color: #327AB8;
+    body {
+      margin: 0;
+      background-color: #ffffff;
     }
 
-    /* Apply color as #eaf1f7 */
-    .hnBrand,
-    .hnItems a,
-    .hnItem a,
-    .contactPopup .cpSubmit,
-    .scTitle,
-    .taTitle,
-    .faTitle,
-    .faCardTitle,
-    .taCardTitle,
-    .taHit,
-    .faHit,
-    #doorbell-submit-button,
-    .cc-revoke,
-    .cc-allow {
-      color: #eaf1f7;
+    hr {
+      width: 100%;
+      height: 1px;
+      border-width: 0;
+      color: gray;
+      background-color: #eaeaea;
+      margin: 2em 0;
     }
 
-    /* Apply border-color as #327AB8 */
-    .contactPopup .cpName input:hover,
-    .contactPopup .cpEmail input:hover,
-    .contactPopup .cpTextarea textarea:hover,
-    .contactPopup .cpName input:focus,
-    .contactPopup .cpEmail input:focus,
-    .contactPopup .cpTextarea textarea:focus,
-    #prevNext .pnPrev:hover,
-    #prevNext .pnNext:hover {
-      border-color: #327AB8;
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      width: 100%;
+      margin: 10px 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
     }
 
-    /* Apply border-top-color as #327AB8 */
-    .cc-window {
-      border-top-color: #327AB8 !important;
+    input {
+      display: block;
+      max-height: 5rem;
+      padding: 0.95rem;
+      border-radius: 3px;
+      border: 1px solid #c3c3c3;
     }
 
-    /* Apply border-color as #327AB8 */
-    #articleBody blockquote {
-      border-color: #327AB8;
-    }
+    @-webkit-keyframes fadeUpIn {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+      }
 
-    /* Apply color as #286193 */
-    #articleBody ol>li:before,
-    .snmenu a.sidebar-category p.expanded,
-    .snmenu a.sidebar-article.current p,
-    .ticket-deflection-result a,
-    .cc-dismiss,
-    .cc-deny {
-      color: #286193;
-    }
-
-    @media only screen and (max-width: 1000px) {
-      .hnItem a {
-        color: #286193;
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
       }
     }
 
-    /* Apply background-color as #eaf1f7 */
-    #articleBody ol>li:before,
-    .snmenu a.sidebar-category p.expanded,
-    .snmenu a.sidebar-article.current p,
-    .cc-dismiss,
-    .cc-deny {
-      background-color: rgba(234, 241, 247);
+    @keyframes fadeUpIn {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
     }
 
-    /* Apply border-color as #eaf1f7 */
-    #articleBody ol>li:after {
-      border: 1px solid rgba(234, 241, 247);
+    #team-login {
+      padding-top: 4em;
+      margin-bottom: 5rem;
+      width: 100%;
     }
 
-    /* Apply fill as #327AB8 */
-    .fbPositiveIcon:hover .fbHighlightFill,
-    .fbNeutralIcon:hover .fbHighlightFill,
-    .fbNegativeIcon:hover .fbHighlightFill {
-      fill: #327AB8;
+    #team-login .left.spacer {
+      -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+      order: 1;
+      width: 35%;
     }
 
-    /* Apply stroke as #327AB8 */
-    .fbPositiveIcon:hover .fbHighlightStroke,
-    .fbNeutralIcon:hover .fbHighlightStroke,
-    .fbNegativeIcon:hover .fbHighlightStroke {
-      stroke: #327AB8;
+    #team-login .right.spacer {
+      -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+      order: 3;
+      width: 35%;
     }
 
-    /* Apply fill as #eaf1f7 */
-    .hnLangFlag {
-      fill: #eaf1f7;
+    #team-login .box {
+      -webkit-animation: fadeUpIn 0.75s cubic-bezier(.2, 1, .2, 1);
+      animation: fadeUpIn 0.75s cubic-bezier(.2, 1, .2, 1);
     }
 
-    /* Apply fill as #327AB8 */
-    .aCardFeaturedIcon {
-      fill: #327AB8;
+    input#submitbutton {
+      background-color: #4848e2;
+      color: white;
+      padding: 0.75rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+
+    #team-login button {
+      padding: 0.75rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      background-color: #4848e2;
+      color: white;
+    }
+
+    #team-login .top img.logo {
+      margin: 0 auto 2em auto;
+      display: block;
+      max-height: 3rem;
+      -webkit-animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1);
+      animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1);
+    }
+
+    #team-login .middle {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+    }
+
+    #team-login .box {
+      -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+      order: 2;
+      margin-bottom: -2em;
+      background-color: white;
+      border-radius: 6px;
+      padding: 2em;
+      -webkit-box-shadow:
+        0 1.1px 4.9px rgba(0, 0, 0, 0.045),
+        0 3.8px 16.3px rgba(0, 0, 0, 0.063),
+        0 17px 73px rgba(0, 0, 0, 0.07);
+      box-shadow:
+        0 1.1px 4.9px rgba(0, 0, 0, 0.045),
+        0 3.8px 16.3px rgba(0, 0, 0, 0.063),
+        0 17px 73px rgba(0, 0, 0, 0.07);
+    }
+
+    @media only screen and (max-width: 768px) {
+      #team-login .left.spacer {
+        width: 5%;
+      }
+
+      #team-login .right.spacer {
+        width: 5%;
+      }
+
+      #team-login .box {
+        width: 90%;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      #team-login .left.spacer {
+        width: 25%;
+      }
+
+      #team-login .right.spacer {
+        width: 25%;
+      }
+
+      #team-login .box {
+        width: 50%;
+      }
+    }
+
+    @media only screen and (min-width: 1100px) {
+      #team-login .left.spacer {
+        width: 35%;
+      }
+
+      #team-login .right.spacer {
+        width: 35%;
+      }
+
+      #team-login .box {
+        width: 40%;
+      }
+    }
+
+    @media only screen and (min-width: 2000px) {
+      #team-login .left.spacer {
+        width: 40%;
+      }
+
+      #team-login .right.spacer {
+        width: 40%;
+      }
+
+      #team-login .box {
+        width: 20%;
+      }
+    }
+
+    @media only screen and (min-width: 3000px) {
+      #team-login .left.spacer {
+        width: 45%;
+      }
+
+      #team-login .right.spacer {
+        width: 45;
+      }
+
+      #team-login .box {
+        width: 10%;
+      }
+    }
+
+    #team-login h1 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin: 0 auto;
+      font-weight: 500;
+      color: #000000;
+    }
+
+    p,
+    label {
+      color: #000000;
+    }
+
+    label.required:after {
+      content: " *";
+      color: #ED7F51;
+    }
+
+    #contact-support {
+      text-decoration: none;
+      color: #C0C6CC;
+      text-align: center;
+      transition: 0.5s;
+      margin-top: 20px;
+    }
+
+    #contact-support:hover {
+      color: #000000;
     }
   </style>
+
+  <script type="text/javascript">
+    // Get URL
+    var url = window.location.href;
+    // Get DIV
+    var msg = document.getElementById('err');
+    // Check if URL contains the keyword
+    if (url.search('code=ok') > 0) {
+      // Display the message
+      msg.style.display = "block";
+    }
+  </script>
+
   <meta property="hd-render" content="hbs">
 </head>
 
@@ -146,263 +289,9 @@
   <div id="internalMain" data-hd-template="_internal">
     <div id="internalContent">
       <style>
-        * {
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          font-smoothing: always;
-          text-rendering: optimizeLegibility;
-          -webkit-text-size-adjust: none;
-          -ms-text-size-adjust: 100;
-          font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
-        }
 
-        body {
-          margin: 0;
-          background-color: #ffffff;
-        }
-
-        hr {
-          width: 100%;
-          height: 1px;
-          border-width: 0;
-          color: gray;
-          background-color: #eaeaea;
-          margin: 2em 0;
-        }
-
-        button,
-        input,
-        select,
-        textarea {
-          font-family: inherit;
-          font-size: 100%;
-          width: 100%;
-          margin: 10px 0;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-        }
-
-        input {
-          display: block;
-          max-height: 5rem;
-          padding: 0.95rem;
-          border-radius: 3px;
-          border: 1px solid #c3c3c3;
-        }
-
-        @-webkit-keyframes fadeUpIn {
-          0% {
-            opacity: 0;
-            -webkit-transform: translateY(20px);
-            transform: translateY(20px);
-          }
-
-          100% {
-            opacity: 1;
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeUpIn {
-          0% {
-            opacity: 0;
-            -webkit-transform: translateY(20px);
-            transform: translateY(20px);
-          }
-
-          100% {
-            opacity: 1;
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-          }
-        }
-
-        #team-login {
-          padding-top: 4em;
-          margin-bottom: 5rem;
-          width: 100%;
-        }
-
-        #team-login .left.spacer {
-          -webkit-box-ordinal-group: 2;
-          -ms-flex-order: 1;
-          order: 1;
-          width: 35%;
-        }
-
-        #team-login .right.spacer {
-          -webkit-box-ordinal-group: 4;
-          -ms-flex-order: 3;
-          order: 3;
-          width: 35%;
-        }
-
-        #team-login .box {
-          -webkit-animation: fadeUpIn 0.75s cubic-bezier(.2, 1, .2, 1);
-          animation: fadeUpIn 0.75s cubic-bezier(.2, 1, .2, 1);
-        }
-
-        input#submitbutton {
-          background-color: #4848e2;
-          color: white;
-          padding: 0.75rem;
-          border-radius: 3px;
-          border: none;
-          cursor: pointer;
-          font-weight: 500;
-          margin-top: 20px;
-        }
-
-        #team-login button {
-          padding: 0.75rem;
-          border-radius: 3px;
-          border: none;
-          cursor: pointer;
-          font-weight: 500;
-          background-color: #4848e2;
-          color: white;
-        }
-
-        #team-login .top img.logo {
-          margin: 0 auto 2em auto;
-          display: block;
-          max-height: 3rem;
-          -webkit-animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1);
-          animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1);
-        }
-
-        #team-login .middle {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: horizontal;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-          flex-direction: row;
-        }
-
-        #team-login .box {
-          -webkit-box-ordinal-group: 3;
-          -ms-flex-order: 2;
-          order: 2;
-          margin-bottom: -2em;
-          background-color: white;
-          border-radius: 6px;
-          padding: 2em;
-          -webkit-box-shadow:
-            0 1.1px 4.9px rgba(0, 0, 0, 0.045),
-            0 3.8px 16.3px rgba(0, 0, 0, 0.063),
-            0 17px 73px rgba(0, 0, 0, 0.07);
-          box-shadow:
-            0 1.1px 4.9px rgba(0, 0, 0, 0.045),
-            0 3.8px 16.3px rgba(0, 0, 0, 0.063),
-            0 17px 73px rgba(0, 0, 0, 0.07);
-        }
-
-        @media only screen and (max-width: 768px) {
-          #team-login .left.spacer {
-            width: 5%;
-          }
-
-          #team-login .right.spacer {
-            width: 5%;
-          }
-
-          #team-login .box {
-            width: 90%;
-          }
-        }
-
-        @media only screen and (min-width: 768px) {
-          #team-login .left.spacer {
-            width: 25%;
-          }
-
-          #team-login .right.spacer {
-            width: 25%;
-          }
-
-          #team-login .box {
-            width: 50%;
-          }
-        }
-
-        @media only screen and (min-width: 1100px) {
-          #team-login .left.spacer {
-            width: 35%;
-          }
-
-          #team-login .right.spacer {
-            width: 35%;
-          }
-
-          #team-login .box {
-            width: 40%;
-          }
-        }
-
-        @media only screen and (min-width: 2000px) {
-          #team-login .left.spacer {
-            width: 40%;
-          }
-
-          #team-login .right.spacer {
-            width: 40%;
-          }
-
-          #team-login .box {
-            width: 20%;
-          }
-        }
-
-        @media only screen and (min-width: 3000px) {
-          #team-login .left.spacer {
-            width: 45%;
-          }
-
-          #team-login .right.spacer {
-            width: 45;
-          }
-
-          #team-login .box {
-            width: 10%;
-          }
-        }
-
-        #team-login h1 {
-          font-size: 1.5rem;
-          text-align: center;
-          margin: 0 auto;
-          font-weight: 500;
-          color: #000000;
-        }
-
-        p,
-        label {
-          color: #000000;
-        }
-
-        label.required:after {
-          content:" *";
-          color:#ED7F51;
-        }
-
-        #contact-support {
-          text-decoration: none;
-          color: #C0C6CC;
-          text-align: center;
-          transition: 0.5s;
-          margin-top: 20px;
-        }
-
-        #contact-support:hover {
-          color: #000000;
-        }
       </style>
-      <div id="err"></div>
+      <div id="err" class="alert">this is an error</div>
       <div id="team-login" style="background-color:#327AB8 !important">
         <div class="top">
           <a href="https://creditsense.com.au">
@@ -443,17 +332,23 @@
               </div>
 
               <div>
-                <textarea hidden name="body">Please action this request to access the Credit Sense help docs with love and haste 💌</textarea>
+                <!-- This hidden textarea is required by Front to accept the submission -->
+                <textarea hidden
+                  name="body">Please action this request to access the Credit Sense help docs with love and haste 💌</textarea>
               </div>
 
               <div>
+                <!-- This hidden input ensures the conversation has a subject -->
                 <input type="hidden" name="subject" value="Request for access to help docs">
               </div>
-              
+
               <div>
-                <!-- <input type="submit" value="Request instant access" id="submitbutton"> -->
-                <button id="submitbutton" type="submit">Gimme access!</button>
+                <!-- This input was part of the form code generated by Front but was swapped out in favour of a button to preserve styling on iOS.
+                  <input type="submit" value="Request instant access" id="submitbutton"> 
+                -->
+                <button id="submitbutton" type="submit">Request instant access</button>
               </div>
+              <!-- These two hidden inputs ensure our auto-replies in Front come from the correct support channel -->
               <input type="hidden" name="autoreply-from" value="support@creditsense.com.au">
               <input type="hidden" name="autoreply-sender-name" value="Credit Sense">
             </form>
@@ -477,36 +372,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-  <script type="text/javascript">
-    // Get URL
-    var url = window.location.href;
-    // Get DIV
-    var msg = document.getElementById('idofthedivtohide');
-    // Check if URL contains the keyword
-    if (url.search('success') > 0) {
-      // Display the message
-      msg.style.display = "block";
-    }
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
