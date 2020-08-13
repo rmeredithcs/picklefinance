@@ -272,7 +272,7 @@
       <style>
 
       </style>
-      <div id="err" class="alert">Whoops, that didn't work. Please try again.</div>
+      <div id="err" class="alert"></div>
       <div id="team-login" style="background-color:#327AB8 !important">
         <div class="top">
           <a href="https://creditsense.com.au">
@@ -353,6 +353,71 @@
   <script src="https://chat-assets.frontapp.com/v1/chat.bundle.js"></script>
 <script>
   window.FrontChat('init', {chatId: 'afa4ef6d90c1df3cce9e649a8178aaa4', useDefaultLauncher: true});
+</script>
+<script>
+    function docReady(fn) {
+    // see if DOM is already available
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        // call on next available tick
+        setTimeout(fn, 1);
+    } else {
+        document.addEventListener("DOMContentLoaded", fn);
+    }
+}
+function getUrlParameter(sParam) {
+    let sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+docReady(() => {
+    let formCode = getUrlParameter("code");
+    let message;
+
+    let errorDiv = document.querySelector('#err');
+    
+    // The switch case is to support front form status codes
+    // https://help.frontapp.com/t/h429xa/how-to-set-up-a-form-inbox-in-front#success-and-error
+    switch(formCode) {
+        case "ok":
+            message = "Please check your email inbox."
+            break;
+        case "inactive_form":
+            message = "Whoops, that didn't work. Please try again."
+            break;
+        case "bad_referer":
+            message = "Whoops, that didn't work. Please try again."
+            break;
+        case "no_email":
+            message = "Whoops, that didn't work. Please try again."
+            break;
+        case "no_body":
+            message = "Whoops, that didn't work. Please try again."
+            break;
+        case "service_unavailable":
+            message = "Whoops, that didn't work. Please try again."
+            break;
+        default:
+            message = "Whoops, that didn't work. Please try again."
+        }
+    
+    if (formCode === "ok" ) {
+        errorDiv.insertAdjacentHTML('afterbegin', `<strong>Success</strong><span style="margin-left: 0.25em;">${message}</span>`)
+        errorDiv.style.display = "block"
+        errorDiv.style.backgroundColor = "green"
+    } else {
+        errorDiv.insertAdjacentHTML('afterbegin', `<strong>Error</strong><span style="margin-left: 0.25em;">${message}</span>`)
+        errorDiv.style.display = "block"
+        errorDiv.style.backgroundColor = "#e60a0a"
+
+    }
+})
 </script>
 </body>
 
