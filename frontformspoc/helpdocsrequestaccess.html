@@ -403,6 +403,9 @@ docReady(() => {
         case "service_unavailable":
             message = "Whoops, that didn't work. Please try again."
             break;
+        case undefined:
+            message = false;
+            break;
         default:
             message = "Whoops, that didn't work. Please try again."
         }
@@ -411,7 +414,10 @@ docReady(() => {
         errorDiv.insertAdjacentHTML('afterbegin', `<strong>Success</strong><span style="margin-left: 0.25em;">${message}</span>`)
         errorDiv.style.display = "block"
         errorDiv.style.backgroundColor = "green"
-    } else {
+    } else if (message === false) {
+        errorDiv.style.display = "none"
+    }
+    else {
         errorDiv.insertAdjacentHTML('afterbegin', `<strong>Error</strong><span style="margin-left: 0.25em;">${message}</span>`)
         errorDiv.style.display = "block"
         errorDiv.style.backgroundColor = "#e60a0a"
