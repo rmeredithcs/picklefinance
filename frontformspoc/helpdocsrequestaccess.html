@@ -386,39 +386,39 @@ docReady(() => {
     // https://help.frontapp.com/t/h429xa/how-to-set-up-a-form-inbox-in-front#success-and-error
     switch(formCode) {
         case "ok":
-            message = "Please check your email inbox."
+            message = "We've sent you an email with login details."
             break;
         case "inactive_form":
-            message = "Whoops, that didn't work. Please try again."
+            message = "Whoops, that didn't work. Please try again. If the issue persists, please <a href="mailto:support@creditsense.com.au">let us know</a>"
             break;
         case "bad_referer":
-            message = "Whoops, that didn't work. Please try again."
+            message = "Whoops, that didn't work. Please try again. If the issue persists, please <a href="mailto:support@creditsense.com.au">let us know</a>"
             break;
         case "no_email":
-            message = "Whoops, that didn't work. Please try again."
+            message = "Whoops, that didn't work. Please try again. If the issue persists, please <a href="mailto:support@creditsense.com.au">let us know</a>"
             break;
         case "no_body":
-            message = "Whoops, that didn't work. Please try again."
+            message = "Whoops, that didn't work. Please try again. If the issue persists, please <a href="mailto:support@creditsense.com.au">let us know</a>"
             break;
         case "service_unavailable":
-            message = "Whoops, that didn't work. Please try again."
+            message = "Whoops, that didn't work. Please try again. If the issue persists, please <a href="mailto:support@creditsense.com.au">let us know</a>"
             break;
         case undefined:
             message = false;
             break;
         default:
-            message = "Whoops, that didn't work. Please try again."
+            message = "Whoops, that didn't work. Please try again. If the issue persists, please <a href="mailto:support@creditsense.com.au">let us know</a>"
         }
     
     if (formCode === "ok" ) {
-        errorDiv.insertAdjacentHTML('afterbegin', `<strong>Success</strong><span style="margin-left: 0.25em;">${message}</span>`)
+        errorDiv.insertAdjacentHTML('afterbegin', `<strong>Success 👍 </strong><span style="margin-left: 0.25em;">${message}</span>`)
         errorDiv.style.display = "block"
         errorDiv.style.backgroundColor = "green"
     } else if (message === false) {
         errorDiv.style.display = "none"
     }
     else {
-        errorDiv.insertAdjacentHTML('afterbegin', `<strong>Error</strong><span style="margin-left: 0.25em;">${message}</span>`)
+        errorDiv.insertAdjacentHTML('afterbegin', `<strong>Error 👎 </strong><span style="margin-left: 0.25em;">${message}</span>`)
         errorDiv.style.display = "block"
         errorDiv.style.backgroundColor = "#e60a0a"
 
