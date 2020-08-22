@@ -1,0 +1,580 @@
+<html lang="en">
+
+<head>
+    <title>Credit Sense</title>
+    <meta name="description" content="API docs for Credit Sense">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        #err .alert {
+            background-color: #e60a0a;
+            color: white;
+            padding: 0.75em;
+            text-align: center;
+        }
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+        h1 {
+            color: #195196;
+            font-family: 'Alfa Slab One', cursive;
+            font-size: 8vw;
+            transition-duration: 50ms;
+            text-align: center;
+            margin: 0 auto;
+        } 
+        h1:hover {
+            color: #195196;  /* Fallback: assume this color ON TOP of image */
+            background: url(tvstatic.gif) repeat;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(25,81,150,0.2);
+        } 
+        h2 {
+            color: #195196;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 2vw;
+            margin-top: -15px;
+            font-weight: 500;
+        }
+
+        a {
+            text-decoration: none;
+            color:#000
+        }
+        a:hover {
+            text-decoration: none;
+            color:#000
+        }
+        /* Apply background colors as #327AB8 */
+        #homeBanner {
+            background-color: #327AB8;
+        }
+
+        /* Apply background colors as #327AB8 */
+        .contactPopup .cpSubmit,
+        #doorbell-submit-button,
+        .cc-revoke,
+        .cc-allow {
+            background-color: #327AB8;
+        }
+
+        /* Apply color as #327AB8 */
+        .langLink,
+        .cCardIcon,
+        .cCardTitle,
+        .aCardTitle,
+        .spCardTitle,
+        .snmenu a.sidebar-category:hover,
+        .snmenu a.sidebar-article:hover,
+        #tableOfContents a:hover,
+        .bcList a,
+        #articleBody a,
+        #articleBody ul>li::before,
+        .inline-code,
+        code,
+        .cpCheck:after,
+        .cc-link {
+            color: #327AB8;
+        }
+
+        /* Apply color as #eaf1f7 */
+        .hnBrand,
+        .hnItems a,
+        .hnItem a,
+        .contactPopup .cpSubmit,
+        .scTitle,
+        .taTitle,
+        .faTitle,
+        .faCardTitle,
+        .taCardTitle,
+        .taHit,
+        .faHit,
+        #doorbell-submit-button,
+        .cc-revoke,
+        .cc-allow {
+            color: #eaf1f7;
+        }
+
+        /* Apply border-color as #327AB8 */
+        .contactPopup .cpName input:hover,
+        .contactPopup .cpEmail input:hover,
+        .contactPopup .cpTextarea textarea:hover,
+        .contactPopup .cpName input:focus,
+        .contactPopup .cpEmail input:focus,
+        .contactPopup .cpTextarea textarea:focus,
+        #prevNext .pnPrev:hover,
+        #prevNext .pnNext:hover {
+            border-color: #327AB8;
+        }
+
+        /* Apply border-top-color as #327AB8 */
+        .cc-window {
+            border-top-color: #327AB8 !important;
+        }
+
+        /* Apply border-color as #327AB8 */
+        #articleBody blockquote {
+            border-color: #327AB8;
+        }
+
+        /* Apply color as #286193 */
+        #articleBody ol>li:before,
+        .snmenu a.sidebar-category p.expanded,
+        .snmenu a.sidebar-article.current p,
+        .ticket-deflection-result a,
+        .cc-dismiss,
+        .cc-deny {
+            color: #286193;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .hnItem a {
+                color: #286193;
+            }
+        }
+
+        /* Apply background-color as #eaf1f7 */
+        #articleBody ol>li:before,
+        .snmenu a.sidebar-category p.expanded,
+        .snmenu a.sidebar-article.current p,
+        .cc-dismiss,
+        .cc-deny {
+            background-color: rgba(234, 241, 247);
+        }
+
+        /* Apply border-color as #eaf1f7 */
+        #articleBody ol>li:after {
+            border: 1px solid rgba(234, 241, 247);
+        }
+
+        /* Apply fill as #327AB8 */
+        .fbPositiveIcon:hover .fbHighlightFill,
+        .fbNeutralIcon:hover .fbHighlightFill,
+        .fbNegativeIcon:hover .fbHighlightFill {
+            fill: #327AB8;
+        }
+
+        /* Apply stroke as #327AB8 */
+        .fbPositiveIcon:hover .fbHighlightStroke,
+        .fbNeutralIcon:hover .fbHighlightStroke,
+        .fbNegativeIcon:hover .fbHighlightStroke {
+            stroke: #327AB8;
+        }
+
+        /* Apply fill as #eaf1f7 */
+        .hnLangFlag {
+            fill: #eaf1f7;
+        }
+
+        /* Apply fill as #327AB8 */
+        .aCardFeaturedIcon {
+            fill: #327AB8;
+        }
+    </style>
+    <meta property="hd-render" content="hbs">
+</head>
+
+<body>
+    <div id="internalMain" data-hd-template="_internal">
+        <div id="internalContent">
+            <style>
+                #err .alert {
+                    background-color: #e60a0a;
+                    color: #fff;
+                    padding: .75em;
+                    text-align: center
+                }
+
+                #homeBanner {
+                    background-color: #327ab8
+                }
+
+                #doorbell-submit-button,
+                .cc-allow,
+                .cc-revoke,
+                .contactPopup .cpSubmit {
+                    background-color: #327ab8
+                }
+
+                #articleBody a,
+                #articleBody ul>li::before,
+                #tableOfContents a:hover,
+                .aCardTitle,
+                .bcList a,
+                .cCardIcon,
+                .cCardTitle,
+                .cc-link,
+                .cpCheck:after,
+                .inline-code,
+                .langLink,
+                .snmenu a.sidebar-article:hover,
+                .snmenu a.sidebar-category:hover,
+                .spCardTitle,
+                code {
+                    color: #327ab8
+                }
+
+                #doorbell-submit-button,
+                .cc-allow,
+                .cc-revoke,
+                .contactPopup .cpSubmit,
+                .faCardTitle,
+                .faHit,
+                .faTitle,
+                .hnBrand,
+                .hnItem a,
+                .hnItems a,
+                .scTitle,
+                .taCardTitle,
+                .taHit,
+                .taTitle {
+                    color: #eaf1f7
+                }
+
+                #prevNext .pnNext:hover,
+                #prevNext .pnPrev:hover,
+                .contactPopup .cpEmail input:focus,
+                .contactPopup .cpEmail input:hover,
+                .contactPopup .cpName input:focus,
+                .contactPopup .cpName input:hover,
+                .contactPopup .cpTextarea textarea:focus,
+                .contactPopup .cpTextarea textarea:hover {
+                    border-color: #327ab8
+                }
+
+                .cc-window {
+                    border-top-color: #327ab8 !important
+                }
+
+                #articleBody blockquote {
+                    border-color: #327ab8
+                }
+
+                #articleBody ol>li:before,
+                .cc-deny,
+                .cc-dismiss,
+                .snmenu a.sidebar-article.current p,
+                .snmenu a.sidebar-category p.expanded,
+                .ticket-deflection-result a {
+                    color: #286193
+                }
+
+                @media only screen and (max-width:1000px) {
+                    .hnItem a {
+                        color: #286193
+                    }
+                }
+
+                #articleBody ol>li:before,
+                .cc-deny,
+                .cc-dismiss,
+                .snmenu a.sidebar-article.current p,
+                .snmenu a.sidebar-category p.expanded {
+                    background-color: rgba(234, 241, 247)
+                }
+
+                #articleBody ol>li:after {
+                    border: 1px solid rgba(234, 241, 247)
+                }
+
+                .fbNegativeIcon:hover .fbHighlightFill,
+                .fbNeutralIcon:hover .fbHighlightFill,
+                .fbPositiveIcon:hover .fbHighlightFill {
+                    fill: #327ab8
+                }
+
+                .fbNegativeIcon:hover .fbHighlightStroke,
+                .fbNeutralIcon:hover .fbHighlightStroke,
+                .fbPositiveIcon:hover .fbHighlightStroke {
+                    stroke: #327ab8
+                }
+
+                .hnLangFlag {
+                    fill: #eaf1f7
+                }
+
+                .aCardFeaturedIcon {
+                    fill: #327ab8
+                }
+
+                * {
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    text-rendering: optimizeLegibility;
+                    -webkit-text-size-adjust: none;
+                    -ms-text-size-adjust: 100;
+                    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif
+                }
+
+                body {
+                    margin: 0;
+                    background-color: #fff
+                }
+
+                hr {
+                    width: 100%;
+                    height: 1px;
+                    border-width: 0;
+                    color: gray;
+                    background-color: #eaeaea;
+                    margin: 2em 0
+                }
+
+                button,
+                input,
+                select,
+                textarea {
+                    font-family: inherit;
+                    font-size: 100%;
+                    width: 100%;
+                    margin: 10px 0;
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box
+                }
+
+                fieldset {
+                    border: 0;
+                    padding: 0
+                }
+
+                input {
+                    display: block;
+                    max-height: 5rem;
+                    padding: .95rem;
+                    border-radius: 3px;
+                    border: 1px solid #c3c3c3
+                }
+
+                @-webkit-keyframes fadeUpIn {
+                    0% {
+                        opacity: 0;
+                        -webkit-transform: translateY(20px);
+                        transform: translateY(20px)
+                    }
+
+                    100% {
+                        opacity: 1;
+                        -webkit-transform: translateY(0);
+                        transform: translateY(0)
+                    }
+                }
+
+                @keyframes fadeUpIn {
+                    0% {
+                        opacity: 0;
+                        -webkit-transform: translateY(20px);
+                        transform: translateY(20px)
+                    }
+
+                    100% {
+                        opacity: 1;
+                        -webkit-transform: translateY(0);
+                        transform: translateY(0)
+                    }
+                }
+
+                #team-login {
+                    padding-top: 4em;
+                    margin-bottom: 5rem;
+                    width: 100%
+                }
+
+                #team-login .left.spacer {
+                    -webkit-box-ordinal-group: 2;
+                    -ms-flex-order: 1;
+                    order: 1;
+                    width: 35%
+                }
+
+                #team-login .right.spacer {
+                    -webkit-box-ordinal-group: 4;
+                    -ms-flex-order: 3;
+                    order: 3;
+                    width: 35%
+                }
+
+                #team-login .box {
+                    -webkit-animation: fadeUpIn .75s cubic-bezier(.2, 1, .2, 1);
+                    animation: fadeUpIn .75s cubic-bezier(.2, 1, .2, 1)
+                }
+
+                #team-login button {
+                    padding: .75rem;
+                    border-radius: 3px;
+                    border: none;
+                    cursor: pointer;
+                    font-weight: 500;
+                    background-color: #195196;
+                    color: #fff
+                }
+
+                #team-login .top img.logo {
+                    margin: 0 auto 2em auto;
+                    display: block;
+                    max-height: 3rem;
+                    -webkit-animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1);
+                    animation: fadeUpIn 2s cubic-bezier(.2, 1, .2, 1)
+                }
+
+                #team-login .middle {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: horizontal;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: row;
+                    flex-direction: row
+                }
+
+                #team-login .box {
+                    -webkit-box-ordinal-group: 3;
+                    -ms-flex-order: 2;
+                    order: 2;
+                    margin-bottom: -2em;
+                    background-color: #fff;
+                    border-radius: 6px;
+                    padding: 2em;
+                    -webkit-box-shadow: 0 1.1px 4.9px rgba(0, 0, 0, .045), 0 3.8px 16.3px rgba(0, 0, 0, .063), 0 17px 73px rgba(0, 0, 0, .07);
+                    box-shadow: 0 1.1px 4.9px rgba(0, 0, 0, .045), 0 3.8px 16.3px rgba(0, 0, 0, .063), 0 17px 73px rgba(0, 0, 0, .07)
+                }
+
+                @media only screen and (max-width:768px) {
+                    #team-login .left.spacer {
+                        width: 5%
+                    }
+
+                    #team-login .right.spacer {
+                        width: 5%
+                    }
+
+                    #team-login .box {
+                        width: 90%
+                    }
+                }
+
+                @media only screen and (min-width:768px) {
+                    #team-login .left.spacer {
+                        width: 25%
+                    }
+
+                    #team-login .right.spacer {
+                        width: 25%
+                    }
+
+                    #team-login .box {
+                        width: 50%
+                    }
+                }
+
+                @media only screen and (min-width:1100px) {
+                    #team-login .left.spacer {
+                        width: 35%
+                    }
+
+                    #team-login .right.spacer {
+                        width: 35%
+                    }
+
+                    #team-login .box {
+                        width: 40%
+                    }
+                }
+
+                @media only screen and (min-width:2000px) {
+                    #team-login .left.spacer {
+                        width: 40%
+                    }
+
+                    #team-login .right.spacer {
+                        width: 40%
+                    }
+
+                    #team-login .box {
+                        width: 20%
+                    }
+                }
+
+                @media only screen and (min-width:3000px) {
+                    #team-login .left.spacer {
+                        width: 45%
+                    }
+
+                    #team-login .right.spacer {
+                        width: 45
+                    }
+
+                    #team-login .box {
+                        width: 10%
+                    }
+                }
+
+                label,
+                p {
+                    color: #000
+                }
+
+                #forgot-password {
+                    text-decoration: none;
+                    color: #c0c6cc;
+                    text-align: center;
+                    transition: .5s
+                }
+
+                #forgot-password:hover {
+                    color: #000
+                }
+            </style>
+            
+
+
+
+
+
+            <div id="team-login" style="background-color:#327AB8 !important">
+                
+
+
+
+
+
+
+                <div class="top">
+                    <a href="https://creditsense.com.au">
+                        <img class="logo" src="credit-sense-logo-white-square-48px.png" alt="Credit Sense logo">
+                    </a>
+                </div>
+                <div class="middle">
+                    <div class="left spacer"></div>
+                    <div class="box">
+                        <div class="title">
+                            <div>
+                                <h1>
+                                    404
+                                </h1>
+                                <h2>
+                                    PAGE NOT FOUND
+                                </h2>
+                                <p>Sorry. It looks like that page has been removed. Would you like to head back to <a href="">our index page</a>?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right spacer"></div>
+                </div>
+            </div>
+            <div
+                style="position: relative !important; bottom: 0 !important; text-align: center !important; margin: 2em !important; padding: initial !important; padding-bottom: 2em !important; display: block !important;">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="32" height="32" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8z" fill="#D6DCE3"/></svg>
+            </div>
+        </div>
+    </div>
+    <script src="https://chat-assets.frontapp.com/v1/chat.bundle.js"></script>
+<script>
+  window.FrontChat('init', {chatId: 'afa4ef6d90c1df3cce9e649a8178aaa4', useDefaultLauncher: true});
+</script>
+</body>
+
+</html>
